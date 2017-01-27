@@ -23,11 +23,11 @@ class MainHandler(webapp2.RequestHandler):
     def get(self):
         page = build_page("Please type the text to be encrypted here", 13)
         self.response.write(page)
-        
+
     def post(self):
         rotnum = self.request.get("rotnum")
         if rotnum == "":
-            rotnum = 0
+            rotnum = None
             encmessage = "Error: please specify a valid rotation number"
         else:
             rotnum = int(rotnum)
